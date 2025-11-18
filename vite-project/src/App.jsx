@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { io } from "socket.io-client";
 import ringtoneSrc from "./assets/iphone-13-30-00-62001.mp3";
 
-const socket = io("http://localhost:5000");
+const DEFAULT_SOCKET = import.meta.env.VITE_SOCKET_URL || "http://localhost:5000";
+const socket = io(DEFAULT_SOCKET);
 
 export default function CallComponent() {
   const [incoming, setIncoming] = useState(null);
